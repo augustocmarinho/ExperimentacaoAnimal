@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/funcionarios/listar', 'Funcionarios@listar');
 Route::get('/funcionarios/cadastrar', 'Funcionarios@cadastrar');
 Route::get('/funcionarios/store', 'Funcionarios@store');
+Route::get('/funcionarios/edit', 'Funcionarios@edit');
+Route::get('/funcionarios/update', 'Funcionarios@update');
+Route::get('/funcionarios/delete', 'Funcionarios@delete');
 
 Route::get('/animais/listar', 'Animais@listar');
 Route::get('/animais/cadastrar', 'Animais@cadastrar');

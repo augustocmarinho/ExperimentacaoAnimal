@@ -51,7 +51,7 @@
                                     <th scope="row"><?=$key->id?></th>
                                     <td><?=$key->nome?></td>
                                     <td><?=$key->cargo?></td>
-                                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
+                                    <td><a href="/funcionarios/edit?id=<?=$key->id?>"><i class="fas fa-edit"></i></a> <a href="/funcionarios/delete?id=<?=$key->id?>"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Cadastro de Funcionários</div>
                     <div class="card-body">
-                        <form action="/funcionarios/store" method="GET">
+                        <form action="/funcionarios/update" method="GET">
                             @include('funcionarios/form')
                         </form>
                     </div>
