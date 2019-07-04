@@ -17,13 +17,19 @@ class Funcionarios extends Controller
         
         $dados = $_GET;
         $dados['senha']=bcrypt($dados['senha']);
-        
+        unset($dados['senhaConfirm']);
         //Imprimindo 1 ou 0
-        print_r( DB::table('Funcionarios')->insert($dados));
+        $result['result'] = DB::table('Funcionarios')->insert($dados);
+
+
+        $funcionarios['funcionarios'] = DB::table('Funcionarios')->get();
+        
+        return view('funcionarios/listar',$funcionarios,$result);
     }
 
     public function listar()
-    {
-        return view('funcionarios/listar');
+    {   
+        $funcionarios['funcionarios'] = DB::table('Funcionarios')->get();
+        return view('funcionarios/listar',$funcionarios);
     }
 }

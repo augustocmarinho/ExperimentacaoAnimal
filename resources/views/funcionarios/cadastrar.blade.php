@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Cadastro de Funcionários</div>
-                <form action="/funcionarios/store">
+                <form action="/funcionarios/store" method="GET">
                 <div class="card-body">
 
                     <div class="col-md-12 row">
@@ -45,11 +45,12 @@
                         </div>
                         <div class="col-md-4">
                             <label> Senha </label>
-                            <input name="senha" type="password" class="form-control" autocomplete="off">
+                            <input name="senha" id="senha" type="password" class="form-control" autocomplete="off">
                         </div>
                         <div class="col-md-4">
                             <label> Confirmação de Senha </label>
-                            <input type="passwordConfirm" class="form-control" autocomplete="off">
+                            <input type="password" onkeyup="validasenha()" name="senhaConfirm" id="senhaConfirm" class="form-control" autocomplete="off">
+                            <span id='message'></span>
                         </div>
                     </div>
 
@@ -66,4 +67,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    function validasenha(){ //Colocar validação do form, se não tiver batendo, não deixar dar o submit
+      if ($('#senha').val() == $('#senhaConfirm').val()) {
+            $('#message').html('').css('color', 'green');
+      } else 
+            $('#message').html('Senhas não correspondem').css('color', 'red');
+    };
+    </script>
 @endsection

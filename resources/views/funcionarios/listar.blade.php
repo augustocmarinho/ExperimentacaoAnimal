@@ -3,8 +3,32 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <?php // Automatizar Essa parte dos alerts depois
+            if(isset($result)){
+                if($result==1){
+                    echo '
+                        <div class="alert alert-success fade show col-md-8" role="alert">
+                            Cadastrado com Sucesso
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    ';
+                }else {
+                    echo '
+                        <div class="alert alert-danger fade show col-md-8" role="alert">
+                            Algum erro aconteceu.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    ';
+                }
+            }    
+        ?>
         <div class="col-md-12">
             <div class="card">
+                
                 <div class="card-header">
                     <div class="row">
                    <div class="col-md-8"> Listagem de Funcionários </div>
@@ -22,24 +46,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Augusto Marinho</td>
-                                <td>Gerente</td>
-                                <td><i class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Kevin Oliveira</td>
-                                <td>Programador</td>
-                                <td><i class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Crijina Chagas</td>
-                                <td>Professora</td>
-                                <td><i class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
-                            </tr>
+                            <?php foreach ($funcionarios as $key) { ?>
+                                <tr>
+                                    <th scope="row"><?=$key->id?></th>
+                                    <td><?=$key->nome?></td>
+                                    <td><?=$key->cargo?></td>
+                                    <td><i class="fas fa-edit"></i> <i class="fas fa-trash"></i></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -48,4 +62,6 @@
     </div>
 </div>
 </div>
+
+
 @endsection
