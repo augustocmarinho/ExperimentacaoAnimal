@@ -53,6 +53,6 @@
     <?php if(isset($funcionarios)){ ?> 
     <input type="hidden" name="id" value="{{ $funcionarios->id ?? null }}">
     <?php } ?>
-    <button type="button" class="btn btn-danger" style="margin-right: 20px" > Cancelar </button>
+    <a class="btn btn-danger" style="margin-right: 20px" href="/funcionarios/listar"> Cancelar </a>
     <button type="submit" class="btn btn-primary" > Salvar </button>
 </div>
