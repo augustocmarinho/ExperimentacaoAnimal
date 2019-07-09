@@ -29,16 +29,11 @@ Route::group(['prefix' => 'funcionarios'], function () {
     Route::get('/delete', 'Funcionarios@delete');
 });
 
-/* Rotas Animais */
-Route::group(['prefix' => 'animais'], function () {
-    Route::get('/listar', 'Animais@listar');
-    Route::get('/cadastrar', 'Animais@cadastrar');
-    Route::get('/store', 'Animais@store');
-});
-
-/*Rotas Biotérios */
-Route::group(['prefix' => 'bioterios'], function () {
-    Route::get('/listar', 'Bioterios@listar');
+/* Rotas Animais */ Route::group(['prefix' => 'animais'], function () { 
+Route::get('/animais/listar', 'Animais@listar');}); 
+Route::get('/animais/cadastrar', 'Animais@cadastrar'); /*Rotas Biotérios 
+*/ Route::group(['prefix' => 'bioterios'], function () {
+Route::get('/animais/store', 'Animais@store');    Route::get('/listar', 'Bioterios@listar');
     Route::get('/cadastrar', 'Bioterios@cadastrar');
 });
 
