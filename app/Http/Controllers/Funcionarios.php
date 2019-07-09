@@ -54,7 +54,7 @@ class Funcionarios extends Controller
         
 
         $id = $_GET['id'];
-        $result['result']=DB::table('Funcionarios')
+        $result['result']=DB::table('users')
                             ->where('id', $_GET['id'])
                             ->update($_GET);
 
