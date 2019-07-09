@@ -30,12 +30,12 @@
 <br>
 <div class="col-md-12 row">
     <div class="col-md-4">
-        <label> Usuário </label>
-        <input name="login" type="text" class="form-control" autocomplete="off" value="{{ $funcionarios->login ?? null }}">
+        <label> Email </label>
+        <input name="email" type="email" class="form-control" autocomplete="off" value="{{ $funcionarios->email ?? null }}">
     </div>
     <div class="col-md-4">
         <label> Senha </label>
-        <input name="senha" id="senha" type="password" class="form-control" autocomplete="off" >
+        <input name="password" id="password" type="password" class="form-control" autocomplete="off" >
     </div>
     <div class="col-md-4">
         <label> Confirmação de Senha </label>

@@ -19,7 +19,7 @@
 
 <script>
     function validasenha(){ //Colocar validação do form, se não tiver batendo, não deixar dar o submit
-      if ($('#senha').val() == $('#senhaConfirm').val()) {
+      if ($('#password').val() == $('#senhaConfirm').val()) {
             $('#message').html('').css('color', 'green');
       } else 
             $('#message').html('Senhas não correspondem').css('color', 'red');

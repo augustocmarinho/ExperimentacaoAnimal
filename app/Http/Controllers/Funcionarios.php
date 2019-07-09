@@ -10,7 +10,7 @@ class Funcionarios extends Controller
 {
     public function listar()
     {   
-        $funcionarios['funcionarios'] = DB::table('Funcionarios')->get();
+        $funcionarios['funcionarios'] = DB::table('users')->get();
         return view('funcionarios/listar',$funcionarios);
     }
 
@@ -22,15 +22,15 @@ class Funcionarios extends Controller
     public function store()
     {
         $dados = $_GET;
-        $dados['senha']=bcrypt($dados['senha']);
+        $dados['password']=bcrypt($dados['password']);
        
         unset($dados['senhaConfirm']);
         unset($_GET['id']);
 
-        $result['result'] = DB::table('Funcionarios')->insert($dados);
+        $result['result'] = DB::table('users')->insert($dados);
 
 
-        $funcionarios['funcionarios'] = DB::table('Funcionarios')->get();
+        $funcionarios['funcionarios'] = DB::table('users')->get();
         
         return view('funcionarios/listar',$funcionarios,$result);
     }
@@ -38,7 +38,7 @@ class Funcionarios extends Controller
     public function edit()
     {
 
-        $funcionarios['funcionarios'] = DB::table('Funcionarios')->find($_GET);
+        $funcionarios['funcionarios'] = DB::table('users')->find($_GET);
         return view('funcionarios/editar',$funcionarios);
     }
 
@@ -46,10 +46,10 @@ class Funcionarios extends Controller
     {
         unset($_GET['senhaConfirm']);
 
-        if(isset($_GET['senha']) && $_GET['senha']!=""){
-            $_GET['senha']=bcrypt($_GET['senha']);
+        if(isset($_GET['password']) && $_GET['password']!=""){
+            $_GET['password']=bcrypt($_GET['password']);
         } else {
-            unset($_GET['senha']);
+            unset($_GET['password']);
         }
         
 
@@ -58,14 +58,14 @@ class Funcionarios extends Controller
                             ->where('id', $_GET['id'])
                             ->update($_GET);
 
-        $funcionarios['funcionarios'] = DB::table('Funcionarios')->get();
+        $funcionarios['funcionarios'] = DB::table('users')->get();
 
         return view('funcionarios/listar',$funcionarios,$result);
     }
 
     public function delete()
     {
-        DB::table('Funcionarios')->delete($_GET['id']);
+        DB::table('users')->delete($_GET['id']);
         return redirect('/funcionarios/listar');
     }
 
