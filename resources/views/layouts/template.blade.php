@@ -93,6 +93,7 @@
                                 Dashboard <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <div style="color:aliceblue">---</div>
                         <li class="nav-item">
                             <a class="nav-link" style="color:aliceblue">
                                 <i class="fas fa-plus" style="margin-right:10px"></i> Gerenciar
@@ -106,6 +107,15 @@
                             <a class="nav-link" href="{{ url('/bioterios/listar') }}" style="color:aliceblue">
                                 <i class="" style="margin-right:40px"></i> Biotérios
                             </a>
+                        </li>
+                        <div style="color:aliceblue">---</div>
+                        <li class="nav-item">
+                                <a class="nav-link" style="color:aliceblue">
+                                    <i class="fas fa-file" style="margin-right:10px"></i> Protocolos
+                                </a>
+                                <a class="nav-link" href="{{ url('/protocolos/cadastrar') }}" style="color:aliceblue">
+                                    <i class="" style="margin-right:40px"></i> Novo
+                                </a>   
                         </li>
                     </ul>
                 </div>
