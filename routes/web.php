@@ -19,19 +19,27 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Agrupar rotas em grupos depois */
-Route::get('/funcionarios/listar', 'Funcionarios@listar');
-Route::get('/funcionarios/cadastrar', 'Funcionarios@cadastrar');
-Route::get('/funcionarios/store', 'Funcionarios@store');
-Route::get('/funcionarios/edit', 'Funcionarios@edit');
-Route::get('/funcionarios/update', 'Funcionarios@update');
-Route::get('/funcionarios/delete', 'Funcionarios@delete');
+/* Rotas funcionários */
+Route::group(['prefix' => 'funcionarios'], function () {
+    Route::get('/listar', 'Funcionarios@listar');
+    Route::get('/cadastrar', 'Funcionarios@cadastrar');
+    Route::get('/store', 'Funcionarios@store');
+    Route::get('/edit', 'Funcionarios@edit');
+    Route::get('/update', 'Funcionarios@update');
+    Route::get('/delete', 'Funcionarios@delete');
+});
 
-Route::get('/animais/listar', 'Animais@listar');
-Route::get('/animais/cadastrar', 'Animais@cadastrar');
+/* Rotas Animais */
+Route::group(['prefix' => 'animais'], function () {
+    Route::get('/listar', 'Animais@listar');
+    Route::get('/cadastrar', 'Animais@cadastrar');
+});
 
-Route::get('/bioterios/listar', 'Bioterios@listar');
-Route::get('/bioterios/cadastrar', 'Bioterios@cadastrar');
+/*Rotas Biotérios */
+Route::group(['prefix' => 'bioterios'], function () {
+    Route::get('/listar', 'Bioterios@listar');
+    Route::get('/cadastrar', 'Bioterios@cadastrar');
+});
 
-
+/* Rotas Protocolos */
 Route::get('/protocolos/cadastrar','Protocolo@cadastrar');
