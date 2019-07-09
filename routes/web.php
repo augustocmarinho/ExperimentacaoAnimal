@@ -32,3 +32,6 @@ Route::get('/animais/cadastrar', 'Animais@cadastrar');
 
 Route::get('/bioterios/listar', 'Bioterios@listar');
 Route::get('/bioterios/cadastrar', 'Bioterios@cadastrar');
+
+
+Route::get('/protocolos/cadastrar','Protocolo@cadastrar');
