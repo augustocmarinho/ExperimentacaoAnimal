@@ -1,15 +1,15 @@
 <div class="col-md-12 row">
     <div class="col-md-4">
         <label> Espécie </label>
-        <input name="especie" type="text" class="form-control" value="{{ $animais[0]->especie ?? null }}">
+        <input name="especie" type="text" class="form-control" value="{{ $animais[0]->especie ?? null }}" required>
     </div>
     <div class="col-md-4">
         <label> Quantidade </label>
-        <input name="quantidade" type="number" class="form-control" value="{{ $animais[0]->quantidade ?? null }}">
+        <input name="quantidade" type="number" class="form-control" value="{{ $animais[0]->quantidade ?? null }}" required>
     </div>
     <div class="col-md-4">
         <label> Biotério </label>
-        <select name="codBioterio" class="form-control">
+        <select name="codBioterio" class="form-control" required>
             <option disabled selected></option>
             <?php foreach ($bioterios as $key ) { ?>
                 <option value="{{$key->id}}" 

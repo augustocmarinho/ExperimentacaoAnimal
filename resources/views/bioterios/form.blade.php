@@ -1,11 +1,11 @@
 <div class="col-md-12 row">
     <div class="col-md-4">
         <label> Nome </label>
-        <input name="nome" type="text" class="form-control" value="{{ $bioterios->nome ?? null }}">
+        <input name="nome" type="text" class="form-control" value="{{ $bioterios->nome ?? null }}" required>
     </div>
     <div class="col-md-4">
         <label> Local </label>
-        <input name="local" type="text" class="form-control" value="{{ $bioterios->local ?? null }}">
+        <input name="local" type="text" class="form-control" value="{{ $bioterios->local ?? null }}" required>
     </div>
 </div>
 
