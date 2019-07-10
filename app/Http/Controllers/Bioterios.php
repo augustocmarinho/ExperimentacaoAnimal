@@ -33,9 +33,7 @@ class Bioterios extends Controller
 
     public function getByName()
     {
-        $bioterios['bioterios'] = DB::table('Bioterios')->where('nome', 'like', '%'.$_GET['nome'].'%')
-                                                            ->get();
-        
+        $bioterios['bioterios'] = DB::table('Bioterios')->whereRaw('LOWER(nome) LIKE ? ',[trim(strtolower($_GET['nome'])).'%'])->get();
         return view('bioterios/listar',$bioterios);
     }
 

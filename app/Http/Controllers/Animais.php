@@ -32,8 +32,7 @@ class Animais extends Controller {
     
     public function getByName()
     {
-        $animais['animais'] = DB::table('Animais')->where('especie', 'like', '%'.$_GET['nome'].'%')
-                                                            ->get();
+        $animais['animais'] = DB::table('Animais')->whereRaw('LOWER(especie) LIKE ? ',[trim(strtolower($_GET['nome'])).'%'])->get();
         
         return view('animais/listar',$animais);
     }

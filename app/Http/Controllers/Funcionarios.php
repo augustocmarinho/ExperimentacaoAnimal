@@ -40,8 +40,7 @@ class Funcionarios extends Controller
 
     public function getByName()
     {
-        $funcionarios['funcionarios'] = DB::table('users')->where('nome', 'like', '%'.$_GET['nome'].'%')
-                                                            ->get();
+        $funcionarios['funcionarios'] = DB::table('users')->whereRaw('LOWER(nome) LIKE ? ', [trim(strtolower($_GET['nome'])).'%'])->get();
         
         return view('funcionarios/listar',$funcionarios);
     }
