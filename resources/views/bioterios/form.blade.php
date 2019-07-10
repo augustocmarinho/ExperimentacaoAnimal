@@ -15,6 +15,6 @@
     <?php if(isset($bioterios)) { ?>
         <input type="hidden" name="id" value="{{ $bioterios->id ?? null }}">
     <?php } ?>
-    <button type="button" class="btn btn-danger" style="margin-right: 20px" > Cancelar </button>
+    <a href="/bioterios/listar" class="btn btn-danger" style="margin-right: 20px" > Cancelar </a>
     <button type="submit" class="btn btn-primary" > Salvar </button>
 </div>

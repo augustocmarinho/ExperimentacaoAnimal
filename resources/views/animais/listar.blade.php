@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                     <div class="col-md-8"> Listagem de Animais </div>
+                     <div class="col-md-8"><h5>Listagem de Animais</h5></div>
                      <div class="col-md-4" style="text-align:right"> <a href="{{ url('/animais/cadastrar') }}" class="btn btn-primary" style="align">Novo</a></div>
                  </div>
              </div>
@@ -38,7 +38,7 @@
                                 <th scope="row"><?=$key->codigo?></th>
                                 <td><?=$key->especie?></td>
                                 <td><?=$key->quantidade?></td>
-                                <td><?=$key->codBioterio?></td>
+                                <td><?=$key->nome?></td>
                                 <td>
                                     <a href="/animais/edit?codigo=<?=$key->codigo?>"><i class="fas fa-edit"></i></a> 
                                     <a href="#" onclick="confirmDelete('<?=$key->codigo?>');" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a>

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                     <div class="col-md-8"> Listagem de Biotérios </div>
+                     <div class="col-md-8"><h5> Listagem de Biotérios </h5></div>
                      <div class="col-md-4" style="text-align:right"> <a href="{{ url('/bioterios/cadastrar') }}" class="btn btn-primary" style="align">Novo</a></div>
                  </div>
              </div>

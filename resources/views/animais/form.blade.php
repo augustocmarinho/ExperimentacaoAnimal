@@ -10,9 +10,13 @@
     <div class="col-md-4">
         <label> Biotério </label>
         <select name="codBioterio" class="form-control">
-            <option> {{ $animais[0]->codBioterio ?? null }} </option>
-            <option>2</option>
-            <option>3</option>
+            <option disabled selected></option>
+            <?php foreach ($bioterios as $key ) { ?>
+                <option value="{{$key->id}}" 
+                    <?php if(isset($animais) && $animais[0]->codBioterio==$key->id?print("selected"):"")?> >
+                    {{$key->nome}}
+                </option>
+            <?php }?>
         </select>
     </div> 
 </div> 

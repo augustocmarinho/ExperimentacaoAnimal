@@ -16,7 +16,14 @@
 <div class="col-md-12 row">
     <div class="col-md-6">
         <label> Titulação </label>
-        <input name="titulacao" type="text" class="form-control" value="{{ $funcionarios->titulacao ?? null }}">
+        <select name="titulacao" class="form-control" >
+            <option>{{ $funcionarios->titulacao ?? null }}</option>
+            <option>Graduado</option>
+            <option>Pós-Graduado</option>
+            <option>Mestre</option>
+            <option>Doutor</option>
+            <option>PHD</option>
+        </select>
     </div>
     <div class="col-md-6">
         <label> Tipo </label>
