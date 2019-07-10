@@ -43,6 +43,10 @@ Route::group(['prefix' => 'animais'], function () {
 Route::group(['prefix' => 'bioterios'], function () {
     Route::get('/listar', 'Bioterios@listar');
     Route::get('/cadastrar', 'Bioterios@cadastrar');
+    Route::get('/store', 'Bioterios@store');
+    Route::get('/edit', 'Bioterios@edit');
+    Route::get('/update', 'Bioterios@update');
+    Route::get('/delete', 'Bioterios@delete');
 });
 
 /* Rotas Protocolos */
