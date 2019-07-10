@@ -24,7 +24,11 @@ class Bioterios extends Controller
     	unset($_GET['id']);
 
     	$result['result'] = DB::table('Bioterios')->insert($dados);
-    	return redirect('/bioterios/listar');
+
+    	if($result)
+            return redirect('bioterios/listar')->with('success','Cadastrado com sucesso.');
+        else
+            return redirect('bioterios/listar')->with('error','Um erro aconteceu.');
     }
 
     public function edit()
@@ -42,12 +46,18 @@ class Bioterios extends Controller
 
         $bioterios['bioterios'] = DB::table('Bioterios')->get();
 
-        return view('bioterios/listar',$bioterios,$result);
+        if($result)
+            return redirect('bioterios/listar')->with('success','Editado com sucesso.');
+        else
+            return redirect('bioterios/listar')->with('error','Um erro aconteceu.');
     }
 
     public function delete()
     {
         DB::table('Bioterios')->delete($_GET['id']);
-        return redirect('/bioterios/listar');
+        if($result)
+            return redirect('bioterios/listar')->with('success','Apagado com sucesso.');
+        else
+            return redirect('bioterios/listar')->with('error','Um erro aconteceu.');
     }
 }
