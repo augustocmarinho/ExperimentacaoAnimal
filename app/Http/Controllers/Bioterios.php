@@ -54,8 +54,7 @@ class Bioterios extends Controller
 
     public function delete()
     {
-        DB::table('Bioterios')->delete($_GET['id']);
-        if($result)
+        if(DB::table('Bioterios')->delete($_GET['id']))
             return redirect('bioterios/listar')->with('success','Apagado com sucesso.');
         else
             return redirect('bioterios/listar')->with('error','Um erro aconteceu.');
