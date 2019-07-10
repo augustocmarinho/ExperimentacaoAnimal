@@ -34,6 +34,9 @@ Route::group(['prefix' => 'animais'], function () {
     Route::get('/listar', 'Animais@listar');
     Route::get('/cadastrar', 'Animais@cadastrar');
     Route::get('/store', 'Animais@store');
+    Route::get('/edit', 'Animais@edit');
+    Route::get('/update', 'Animais@update');
+    Route::get('/delete', 'Animais@delete');
 });
 
 /*Rotas Biotérios */
