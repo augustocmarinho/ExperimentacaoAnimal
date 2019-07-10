@@ -57,7 +57,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="modal-btn-no">Cancelar</button>
+        <button type="button" class="btn btn-default" id="modal-btn-no" data-dismiss="modal">Cancelar</button>
         <a type="button" href="#" class="btn btn-danger" id="modal-btn-confirm">Deletar</a>
       </div>
     </div>
