@@ -3,6 +3,29 @@
 @section('content') 
 <div class="container">
     <div class="row justify-content-center">
+        <?php // Automatizar Essa parte dos alerts depois
+            if(isset($result)){
+                if($result==1){
+                    echo '
+                        <div class="alert alert-success fade show col-md-8" role="alert">
+                            Cadastrado com Sucesso
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    ';
+                }else {
+                    echo '
+                        <div class="alert alert-danger fade show col-md-8" role="alert">
+                            Algum erro aconteceu.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    ';
+                }
+            }    
+        ?>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -29,7 +52,7 @@
                                 <td><?=$key->especie?></td>
                                 <td><?=$key->codBioterio?></td>
                                 <td><?=$key->quantidade?></td>
-                                <td><a href="/animais/edit?id=<?=$key->codigo?>"><i class="fas fa-edit"></i></a> <a href="/animais/delete?id=<?=$key->codigo?>"><i class="fas fa-trash"></i></a></td>
+                                <td><a href="/animais/edit?codigo=<?=$key->codigo?>"><i class="fas fa-edit"></i></a> <a href="/animais/delete?id=<?=$key->codigo?>"><i class="fas fa-trash"></i></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
