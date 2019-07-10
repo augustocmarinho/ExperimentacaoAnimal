@@ -8,13 +8,17 @@ use Illuminate\Support\Facades\DB;
 class Animais extends Controller {
     public function listar()
     {
-    	$animais['animais'] = DB::table('Animais')->get();
+        $animais['animais'] = DB::table('Animais')
+                                ->join('Bioterios', 'Animais.codBioterio', '=', 'Bioterios.id')
+                                ->select('Animais.*', 'Bioterios.nome')
+                                ->get();
         return view('animais/listar',$animais);
     }
 
     public function cadastrar()
     {
-        return view('animais/cadastrar');
+        $bioterios['bioterios'] = DB::table('Bioterios')->get();
+        return view('animais/cadastrar',$bioterios);
     }
 
     public function store()
@@ -32,15 +36,18 @@ class Animais extends Controller {
     
     public function getByName()
     {
-        $animais['animais'] = DB::table('Animais')->whereRaw('LOWER(especie) LIKE ? ',[trim(strtolower($_GET['nome'])).'%'])->get();
-        
+        $animais['animais'] = DB::table('Animais')->whereRaw('LOWER(especie) LIKE ? ',[trim(strtolower($_GET['nome'])).'%'])
+                                ->join('Bioterios', 'Animais.codBioterio', '=', 'Bioterios.id')
+                                ->select('Animais.*', 'Bioterios.nome')
+                                ->get();
         return view('animais/listar',$animais);
     }
 
     public function edit()
     { 
+        $bioterios['bioterios'] = DB::table('Bioterios')->get();
         $animais['animais'] = DB::table('Animais')->where('codigo','=',$_GET)->get();
-        return view('animais/editar',$animais);
+        return view('animais/editar',$animais,$bioterios);
     }
 
     public function update()
@@ -53,7 +60,6 @@ class Animais extends Controller {
             return redirect('animais/listar')->with('success','Editado com sucesso.');
         else
             return redirect('animais/listar')->with('error','Um erro aconteceu.');
-
     }
 
     public function delete()
