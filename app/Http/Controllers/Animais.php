@@ -46,8 +46,9 @@ class Animais extends Controller {
     }
     public function delete()
     {
-        $codigo = $_GET['id']; 
-        DB::table('Animais')->where('codigo','=',$codigo)->delete();
-        return redirect('/animais/listar');
+        if(DB::table('Animais')->where('codigo','=',$_GET['id'])->delete())
+            return redirect('animais/listar')->with('success','Apagado com sucesso.');
+        else
+            return redirect('animais/listar')->with('error','Um erro aconteceu.');
     }
 }

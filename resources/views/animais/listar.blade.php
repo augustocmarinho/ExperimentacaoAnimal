@@ -1,6 +1,8 @@
+
 @extends('layouts.template') 
 
 @section('content') 
+  
 <div class="container">
     <div class="row justify-content-center">
         @include('flash-message')
@@ -18,8 +20,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Espécie</th>
-                            <th scope="col">Biotério</th>
                             <th scope="col">Quantidade</th>
+                            <th scope="col">Biotério</th>
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
@@ -28,9 +30,12 @@
                             <tr>
                                 <th scope="row"><?=$key->codigo?></th>
                                 <td><?=$key->especie?></td>
-                                <td><?=$key->codBioterio?></td>
                                 <td><?=$key->quantidade?></td>
-                                <td><a href="/animais/edit?codigo=<?=$key->codigo?>"><i class="fas fa-edit"></i></a> <a href="/animais/delete?id=<?=$key->codigo?>"><i class="fas fa-trash"></i></a></td>
+                                <td><?=$key->codBioterio?></td>
+                                <td>
+                                    <a href="/animais/edit?codigo=<?=$key->codigo?>"><i class="fas fa-edit"></i></a> 
+                                    <a href="#" onclick="confirmDelete('<?=$key->codigo?>');" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -40,4 +45,29 @@
     </div> 
 </div> 
 </div> 
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="Modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+            <span id="text-delete">Tem certeza que deseja apagar o registro?</span>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="modal-btn-no">Cancelar</button>
+        <a type="button" href="#" class="btn btn-danger" id="modal-btn-confirm">Deletar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function confirmDelete(id){
+        document.getElementById("modal-btn-confirm").href="/animais/delete?id="+id; 
+    }
+</script>
+
 @endsection

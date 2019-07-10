@@ -74,11 +74,11 @@ class Funcionarios extends Controller
 
     public function delete()
     {
-        DB::table('users')->delete($_GET['id']);
-        return redirect('/funcionarios/listar');
+        if (DB::table('users')->delete($_GET['id']))
+            return redirect('funcionarios/listar')->with('success','Apagado com sucesso.');
+        else
+            return redirect('funcionarios/listar')->with('error','Um erro aconteceu.');
+
     }
-
-
-
 
 }
