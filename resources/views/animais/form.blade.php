@@ -21,6 +21,6 @@
     <?php if(isset($animais)){ ?>
         <input type="hidden" name="codigo" value="{{ $animais[0]->codigo ?? null }}">
     <?php } ?>
-    <button type="button" class="btn btn-danger" style="margin-right: 20px" > Cancelar </button>
+    <a class="btn btn-danger" style="margin-right: 20px" href="/animais/listar" > Cancelar </a>
     <button type="submit" class="btn btn-primary" > Salvar </button>
 </div>

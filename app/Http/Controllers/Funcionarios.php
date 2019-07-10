@@ -32,7 +32,10 @@ class Funcionarios extends Controller
 
         $funcionarios['funcionarios'] = DB::table('users')->get();
         
-        return view('funcionarios/listar',$funcionarios,$result);
+        if($result)
+            return redirect('funcionarios/listar')->with('success','Cadastrado com sucesso.');
+        else
+            return redirect('funcionarios/listar')->with('error','Um erro aconteceu.');
     }
 
     public function edit()
@@ -40,6 +43,7 @@ class Funcionarios extends Controller
 
         $funcionarios['funcionarios'] = DB::table('users')->find($_GET);
         return view('funcionarios/editar',$funcionarios);
+        
     }
 
     public function update()
@@ -60,7 +64,12 @@ class Funcionarios extends Controller
 
         $funcionarios['funcionarios'] = DB::table('users')->get();
 
-        return view('funcionarios/listar',$funcionarios,$result);
+        //return view('funcionarios/listar',$funcionarios,$result);
+        if($result)
+            return redirect('funcionarios/listar')->with('success','Editado com sucesso.');
+        else
+            return redirect('funcionarios/listar')->with('error','Um erro aconteceu.');
+
     }
 
     public function delete()

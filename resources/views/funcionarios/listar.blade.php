@@ -3,29 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <?php // Automatizar Essa parte dos alerts depois
-            if(isset($result)){
-                if($result==1){
-                    echo '
-                        <div class="alert alert-success fade show col-md-8" role="alert">
-                            Cadastrado com Sucesso
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    ';
-                }else {
-                    echo '
-                        <div class="alert alert-danger fade show col-md-8" role="alert">
-                            Algum erro aconteceu.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    ';
-                }
-            }    
-        ?>
+        @include('flash-message')
         <div class="col-md-12">
             <div class="card">
                 

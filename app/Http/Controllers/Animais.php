@@ -20,8 +20,12 @@ class Animais extends Controller {
     	$dados = $_GET;
     	unset($_GET['codigo']);
     	$result['result'] = DB::table('Animais')->insert($dados);
-    	$animais['animais'] = DB::table('Animais')->get();
-    	return redirect('animais/listar');
+        
+        if($result)
+            return redirect('animais/listar')->with('success','Cadastrado com sucesso.');
+        else
+            return redirect('animais/listar')->with('error','Um erro aconteceu.');
+
     }
     public function edit()
     { 
@@ -34,8 +38,11 @@ class Animais extends Controller {
                 ->where('codigo',$_GET['codigo'] )
                 ->update($_GET);
 
-        $animais['animais'] = DB::table('Animais')->get();
-        return view('animais/listar',$animais,$result);
+        if($result)
+            return redirect('animais/listar')->with('success','Editado com sucesso.');
+        else
+            return redirect('animais/listar')->with('error','Um erro aconteceu.');
+
     }
     public function delete()
     {
