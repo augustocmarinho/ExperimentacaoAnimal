@@ -38,6 +38,14 @@ class Funcionarios extends Controller
             return redirect('funcionarios/listar')->with('error','Um erro aconteceu.');
     }
 
+    public function getByName()
+    {
+        $funcionarios['funcionarios'] = DB::table('users')->where('nome', 'like', '%'.$_GET['nome'].'%')
+                                                            ->get();
+        
+        return view('funcionarios/listar',$funcionarios);
+    }
+
     public function edit()
     {
 

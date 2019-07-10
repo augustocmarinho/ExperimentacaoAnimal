@@ -31,6 +31,15 @@ class Bioterios extends Controller
             return redirect('bioterios/listar')->with('error','Um erro aconteceu.');
     }
 
+    public function getByName()
+    {
+        $bioterios['bioterios'] = DB::table('Bioterios')->where('nome', 'like', '%'.$_GET['nome'].'%')
+                                                            ->get();
+        
+        return view('bioterios/listar',$bioterios);
+    }
+
+
     public function edit()
     {
         $bioterios['bioterios'] = DB::table('Bioterios')->find($_GET);

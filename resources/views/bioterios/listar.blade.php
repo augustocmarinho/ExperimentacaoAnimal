@@ -11,6 +11,13 @@
                      <div class="col-md-4" style="text-align:right"> <a href="{{ url('/bioterios/cadastrar') }}" class="btn btn-primary" style="align">Novo</a></div>
                  </div>
              </div>
+             <br>
+             <form action="/bioterios/getByName">
+                <div class="row col-md-12" style="text-align:right">
+                    <div class="col-md-10"> <input class="form-control" name="nome" placeholder="Pesquisar por nome"> </div>
+                    <div class="col-md-2"> <button class="btn btn-primary" type="submit">Pesquisar</button> </div>
+                </div>
+            </form>
              <div class="card-body">
                 <table class="table table-hover">
                     <thead>

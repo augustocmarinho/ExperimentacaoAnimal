@@ -27,6 +27,7 @@ Route::group(['prefix' => 'funcionarios'], function () {
     Route::get('/edit', 'Funcionarios@edit');
     Route::get('/update', 'Funcionarios@update');
     Route::get('/delete', 'Funcionarios@delete');
+    Route::get('/getByName', 'Funcionarios@getByName');
 });
 
 /* Rotas Animais */
@@ -37,6 +38,8 @@ Route::group(['prefix' => 'animais'], function () {
     Route::get('/edit', 'Animais@edit');
     Route::get('/update', 'Animais@update');
     Route::get('/delete', 'Animais@delete');
+    Route::get('/getByName', 'Animais@getByName');
+
 });
 
 /*Rotas Biotérios */
@@ -47,6 +50,8 @@ Route::group(['prefix' => 'bioterios'], function () {
     Route::get('/edit', 'Bioterios@edit');
     Route::get('/update', 'Bioterios@update');
     Route::get('/delete', 'Bioterios@delete');
+    Route::get('/getByName', 'Bioterios@getByName');
+
 });
 
 /* Rotas Protocolos */

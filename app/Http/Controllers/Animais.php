@@ -11,10 +11,12 @@ class Animais extends Controller {
     	$animais['animais'] = DB::table('Animais')->get();
         return view('animais/listar',$animais);
     }
+
     public function cadastrar()
     {
         return view('animais/cadastrar');
     }
+
     public function store()
     {
     	$dados = $_GET;
@@ -27,11 +29,21 @@ class Animais extends Controller {
             return redirect('animais/listar')->with('error','Um erro aconteceu.');
 
     }
+    
+    public function getByName()
+    {
+        $animais['animais'] = DB::table('Animais')->where('especie', 'like', '%'.$_GET['nome'].'%')
+                                                            ->get();
+        
+        return view('animais/listar',$animais);
+    }
+
     public function edit()
     { 
         $animais['animais'] = DB::table('Animais')->where('codigo','=',$_GET)->get();
         return view('animais/editar',$animais);
     }
+
     public function update()
     {
         $result['result'] = DB::table('Animais')
@@ -44,6 +56,7 @@ class Animais extends Controller {
             return redirect('animais/listar')->with('error','Um erro aconteceu.');
 
     }
+
     public function delete()
     {
         if(DB::table('Animais')->where('codigo','=',$_GET['id'])->delete())
