@@ -18,6 +18,7 @@
                     </div>
                 </div>
                 <br>
+                <div class="card-body">
                 <form action="/animais/getByName">
                     <div class="row col-md-12" style="text-align:right">
                         <div class="col-md-10"> <input class="form-control" name="nome"
@@ -25,6 +26,7 @@
                         <div class="col-md-2"> <button class="btn btn-primary" type="submit">Pesquisar</button> </div>
                     </div>
                 </form>
+                </div>
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
