@@ -33,7 +33,7 @@
                         <span class="user-name">
                             {{ Auth::user()->nome }}
                         </span>
-                        <span class="user-role">Administrator</span>
+                        <span class="user-role">{{ Auth::user()->cargo }}</span>
                         <span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span> 
