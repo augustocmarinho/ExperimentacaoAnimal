@@ -13,7 +13,8 @@ Migration {
             $table->increments('codigo');
             $table->string('especie');
             $table->integer('quantidade');
-            $table->integer('codBioterio');
+            $table->integer('codBioterio')->unsigned(); 
+            $table->foreign('codBioterio')->references('id')->on('Bioterios'); 
         });
     }
     /**

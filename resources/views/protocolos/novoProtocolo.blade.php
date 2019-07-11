@@ -1,93 +1,101 @@
 @extends('layouts.template')
 
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        @include('flash-message')
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Novo Protocolo</div>
+                <div class="card-header"><h5>Novo Protocolo<h5></div>
                 <div class="card-body">
-                    <form id="regForm">
+                    <form id="regForm" action="/protocolos/store">
                         <div class="tab">
                             <div class="col-md-12 row">
                                 <div class="col-md-4">
                                     <label> Solicitante </label>
-                                    <input name="nome" type="text" oninput="this.className = 'form-control'"
-                                        class="form-control" value="{{ $funcionarios->nome ?? null }}">
+                                    <select name="IDsolicitante" oninput="this.className = 'form-control'"
+                                        class="form-control" required>
+                                        <option disabled selected></option>
+                                        <?php foreach ($funcionarios as $key ) { ?>
+                                        <option value="{{$key->id}}">
+                                            {{$key->nome}}
+                                        </option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label> Data Inicio </label>
-                                    <input name="matricula" type="date" class="form-control"
-                                        oninput="this.className = 'form-control'"
-                                        value="{{ $funcionarios->matricula ?? null }}">
+                                    <input name="dtInicio" type="date" class="form-control"
+                                        oninput="this.className = 'form-control'" value="{{ null }}">
                                 </div>
                                 <div class="col-md-4">
                                     <label> Data Fim </label>
-                                    <input name="cargo" type="date" class="form-control"
-                                        oninput="this.className = 'form-control'"
-                                        value="{{ $funcionarios->cargo ?? null }}">
+                                    <input name="dtFim" type="date" class="form-control"
+                                        oninput="this.className = 'form-control'" value="{{ null }}">
                                 </div>
                             </div>
                         </div>
-
                         <br>
                         <div class="tab">
                             <div class="col-md-12 row">
                                 <div class="col-md-4">
                                     <label> Especie </label>
-                                    <input name="nome" type="text" class="form-control"
-                                        oninput="this.className = 'form-control'"
-                                        value="{{ $funcionarios->nome ?? null }}">
+                                    <select name="IDanimal" oninput="this.className = 'form-control'"
+                                        class="form-control" required>
+                                        <option disabled selected></option>
+                                        <?php foreach ($animais as $key ) { ?>
+                                        <option value="{{$key->codigo}}">
+                                            {{$key->especie}}
+                                        </option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
                                     <label> Quantidade </label>
-                                    <input name="matricula" type="number" class="form-control"
-                                        oninput="this.className = 'form-control'"
-                                        value="{{ $funcionarios->matricula ?? null }}">
+                                    <input name="quantidade" type="number" class="form-control"
+                                        oninput="this.className = 'form-control'" value="{{ null }}">
                                 </div>
                                 <div class="col-md-4">
                                     <label> Bioterio </label>
-                                    <input name="cargo" type="text" class="form-control"
-                                        oninput="this.className = 'form-control'"
-                                        value="{{ $funcionarios->cargo ?? null }}">
+                                    <select name="IDbioterios" oninput="this.className = 'form-control'"
+                                        class="form-control" required>
+                                        <option disabled selected></option>
+                                        <?php foreach ($bioterios as $key ) { ?>
+                                        <option value="{{$key->id}}">
+                                            {{$key->nome}}
+                                        </option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-
                         <br>
                         <div class="tab">
                             <div class="col-md-12 row">
                                 <div class="col-md-12">
                                     <label>Justificativa</label>
-                                    <textarea class="form-control" oninput="this.className = 'form-control'" required
-                                        rows="7"></textarea>
+                                    <textarea name="justificativa" class="form-control"
+                                        oninput="this.className = 'form-control'" required rows="7"></textarea>
                                 </div>
                             </div>
-
                             <br>
-
                             <div class="col-md-12 row">
                                 <div class="col-md-12">
                                     <label>Resumo Português</label>
-                                    <textarea class="form-control" oninput="this.className = 'form-control'" required
-                                        rows="7"></textarea>
+                                    <textarea name="resumoPortugues" class="form-control"
+                                        oninput="this.className = 'form-control'" required rows="7"></textarea>
                                 </div>
                             </div>
-
                             <br>
-
                             <div class="col-md-12 row">
                                 <div class="col-md-12">
                                     <label>Resumo Ingles</label>
-                                    <textarea class="form-control" oninput="this.className = 'form-control'" required
-                                        rows="7"></textarea>
+                                    <textarea name="resumoIngles" class="form-control"
+                                        oninput="this.className = 'form-control'" required rows="7"></textarea>
                                 </div>
                             </div>
                         </div>
-
                         <br>
-
                         <div style="overflow:auto;">
                             <div style="float:right;">
                                 <button type="button" class="btn btn-danger" id="prevBtn"
@@ -102,14 +110,14 @@
                             <span class="step"></span>
                             <span class="step"></span>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
             <br>
         </div>
     </div>
 </div>
-</div>
+
 <style>
     /* Mark input boxes that gets an error on validation: */
     input.invalid {
