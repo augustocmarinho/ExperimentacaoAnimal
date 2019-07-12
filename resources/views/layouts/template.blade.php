@@ -76,6 +76,9 @@
                                     <li>
                                         <a href="{{ url('/protocolos/cadastrar') }}">Novo</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/protocolos/listar') }}">Listar</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

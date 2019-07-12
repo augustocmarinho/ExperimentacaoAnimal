@@ -56,6 +56,7 @@ Route::group(['prefix' => 'bioterios'], function () {
 
 /* Rotas Protocolos */
 Route::group(['prefix' => 'protocolos'], function () {
+    Route::get('/listar','Protocolo@listar');
     Route::get('/cadastrar','Protocolo@cadastrar');
     Route::get('/store','Protocolo@store');
 });

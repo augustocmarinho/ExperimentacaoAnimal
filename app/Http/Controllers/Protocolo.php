@@ -27,7 +27,10 @@ class Protocolo extends Controller
 
     public function listar()
     {
-        $protocolo['protocolo'] = DB::table('Protocolos')->get();
+        $protocolo['protocolo'] = DB::table('Protocolos')
+                                ->join('users', 'Protocolos.IDsolicitante', '=', 'users.id')
+                                ->select('Protocolos.*', 'users.nome')
+                                ->get();
 
         return view('protocolos/listar',$protocolo);
     }

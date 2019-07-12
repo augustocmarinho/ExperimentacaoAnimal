@@ -94,6 +94,7 @@
                                         oninput="this.className = 'form-control'" required rows="7"></textarea>
                                 </div>
                             </div>
+                            <input name="status" type="hidden" value="Aguardando envio para parecer">
                         </div>
                         <br>
                         <div style="overflow:auto;">
