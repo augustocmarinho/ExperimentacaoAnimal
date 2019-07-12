@@ -24,4 +24,16 @@ class Protocolo extends Controller
         else
             return redirect('/protocolos/cadastrar')->with('error','Um erro aconteceu.');
     }
+
+    public function listar()
+    {
+        $protocolo['protocolo'] = DB::table('Protocolos')->get();
+
+        return view('protocolos/listar',$protocolo);
+    }
+
+    public function getByName()
+    {
+        
+    }
 }

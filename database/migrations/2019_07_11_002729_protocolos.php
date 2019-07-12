@@ -18,6 +18,7 @@ class Protocolos extends Migration
             $table->date('dtInicio');
             $table->date('dtFim');
             $table->integer('quantidade');
+            $table->enum('status', ['Aguardando envio para parecer', 'Aguardando parecer', 'Aguardando a deliberação']);
 
             $table->integer('IDsolicitante')->unsigned(); 
             $table->foreign('IDsolicitante')->references('id')->on('users'); 
@@ -28,9 +29,10 @@ class Protocolos extends Migration
             $table->integer('IDbioterios')->unsigned(); 
             $table->foreign('IDbioterios')->references('id')->on('Bioterios');
 
-            $table->string('justificativa');
-            $table->string('resumoPortugues');
-            $table->string('resumoIngles');
+            $table->longText('justificativa');
+            $table->longText('resumoPortugues');
+            $table->longText('resumoIngles');
+            
         });
     }
 

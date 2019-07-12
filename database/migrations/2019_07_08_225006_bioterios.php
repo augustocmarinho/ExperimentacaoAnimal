@@ -28,6 +28,6 @@ class Bioterios extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bioterios');
+        //
     }
 }
