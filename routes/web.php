@@ -59,4 +59,5 @@ Route::group(['prefix' => 'protocolos'], function () {
     Route::get('/listar','Protocolo@listar');
     Route::get('/cadastrar','Protocolo@cadastrar');
     Route::get('/store','Protocolo@store');
+    Route::get('/enviar', 'Protocolo@enviar');
 });

@@ -38,8 +38,9 @@
                                     <td><?=$key->nome?></td>
                                     <td><?=$key->status?></td>
                                     <td>
-                                        <a href="/funcionarios/edit?id=<?=$key->id?>"><i class="fas fa-edit"></i></a> 
-                                        <a href="#" onclick="confirmDelete('<?=$key->id?>');" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a>
+                                        <a href="/protocolos/edit?id=<?=$key->id?>" title="Editar"><i class="fas fa-edit"></i></a> 
+                                        <a href="#" onclick="confirmDelete('<?=$key->id?>');" title="Remover" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a> 
+                                        <a href="/protocolos/enviar?id=<?=$key->id?>" title="Enviar para parecer"><i class="fas fa-upload"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

@@ -39,4 +39,10 @@ class Protocolo extends Controller
     {
         
     }
+
+    public function enviar()
+    {
+        $protocolo['protocolo'] = DB::table('Protocolos')->where('id',$_GET)->update(['status' => 'Aguardando parecer']);
+        return redirect('protocolos/listar');
+    }
 }
