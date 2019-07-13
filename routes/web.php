@@ -61,3 +61,9 @@ Route::group(['prefix' => 'protocolos'], function () {
     Route::get('/store','Protocolo@store');
     Route::get('/enviar', 'Protocolo@enviar');
 });
+
+/* Rotas Pareceres */
+Route::group(['prefix' => 'parecer'], function (){
+    Route::get('/pendentes', 'Parecer@pendentes');
+    Route::get('/listar', 'Parecer@listar');
+});

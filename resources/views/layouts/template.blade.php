@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Experimentação Animal</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 </head>
 
@@ -78,6 +78,22 @@
                                     </li>
                                     <li>
                                         <a href="{{ url('/protocolos/listar') }}">Listar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-clipboard-check"></i>
+                                <span>Pareceres</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="{{ url('/parecer/pendentes') }}">Pendentes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/parecer/listar') }}">Listar</a>
                                     </li>
                                 </ul>
                             </div>

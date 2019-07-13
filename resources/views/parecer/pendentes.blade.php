@@ -9,18 +9,17 @@
                 
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-8"><h5>Listagem de Protocolos</h5></div>
-                        <div class="col-md-4" style="text-align:right"> <a href="{{ url('/protocolos/cadastrar') }}" class="btn btn-primary" style="align">Novo</a></div>
+                        <div class="col-md-8"><h5>Listagem de Protocolos com Parecer pendente</h5></div>
                     </div>
                 </div>
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <form action="/protocolo/getByName">
                         <div class="row col-md-12" style="text-align:right">
                             <div class="col-md-10"> <input class="form-control" name="nome" placeholder="Pesquisar por nome"> </div>
                             <div class="col-md-2"> <button class="btn btn-primary" type="submit">Pesquisar</button> </div>
                         </div>
                     </form>
-                </div>
+                </div> -->
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
@@ -37,11 +36,11 @@
                                     <th scope="row"><?=$key->id?></th>
                                     <td><?=$key->nome?></td>
                                     <td><?=$key->status?></td>
-                                    <td>
+                                    <!-- <td>
                                         <a href="/protocolos/edit?id=<?=$key->id?>" title="Editar"><i class="fas fa-edit"></i></a> 
                                         <a href="#" onclick="confirmDelete('<?=$key->id?>');" title="Remover" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a> 
                                         <a href="/protocolos/enviar?id=<?=$key->id?>" title="Enviar para parecer"><i class="fas fa-upload"></i></a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -74,7 +73,7 @@
 
 <script>
   function confirmDelete(id){
-      document.getElementById("modal-btn-confirm").href="/protocolos/delete?id="+id; 
+      document.getElementById("modal-btn-confirm").href="/protocolo/delete?id="+id; 
   }
 </script>
 

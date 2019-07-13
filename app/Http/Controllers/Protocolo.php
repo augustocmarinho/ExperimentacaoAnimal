@@ -20,7 +20,7 @@ class Protocolo extends Controller
     public function store()
     {
         if(DB::table('Protocolos')->insert($_GET))
-            return redirect('/protocolos/cadastrar')->with('success','Protocolo registrado com sucesso.');
+            return redirect('/protocolos/listar')->with('success','Protocolo registrado com sucesso.');
         else
             return redirect('/protocolos/cadastrar')->with('error','Um erro aconteceu.');
     }

@@ -9,12 +9,12 @@
                 
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-8"><h5>Listagem de Protocolos</h5></div>
-                        <div class="col-md-4" style="text-align:right"> <a href="{{ url('/protocolos/cadastrar') }}" class="btn btn-primary" style="align">Novo</a></div>
+                        <div class="col-md-8"><h5>Listagem de Pareceres</h5></div>
+                        <div class="col-md-4" style="text-align:right"> <a href="{{ url('/parecer/emitir') }}" class="btn btn-primary" style="align">Novo</a></div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="/protocolo/getByName">
+                    <form action="/parecer/getByName">
                         <div class="row col-md-12" style="text-align:right">
                             <div class="col-md-10"> <input class="form-control" name="nome" placeholder="Pesquisar por nome"> </div>
                             <div class="col-md-2"> <button class="btn btn-primary" type="submit">Pesquisar</button> </div>
@@ -26,21 +26,20 @@
                         <thead>
                             <tr>
                                 <th scope="col">Código</th>
-                                <th scope="col">Responsável</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Recomendação</th>
+                                <th scope="col">Decisão</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($protocolo as $key) { ?>
+                            <?php foreach ($parecer as $key) { ?>
                                 <tr>
                                     <th scope="row"><?=$key->id?></th>
-                                    <td><?=$key->nome?></td>
-                                    <td><?=$key->status?></td>
+                                    <td><?=$key->recomendacao?></td>
+                                    <td><?=$key->decisaoFinal?></td>
                                     <td>
-                                        <a href="/protocolos/edit?id=<?=$key->id?>" title="Editar"><i class="fas fa-edit"></i></a> 
+                                        <a href="/parecer/edit?id=<?=$key->id?>" title="Editar"><i class="fas fa-edit"></i></a> 
                                         <a href="#" onclick="confirmDelete('<?=$key->id?>');" title="Remover" data-toggle="modal" data-target="#Modal"><i class="fas fa-trash"></i></a> 
-                                        <a href="/protocolos/enviar?id=<?=$key->id?>" title="Enviar para parecer"><i class="fas fa-upload"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -50,7 +49,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 
@@ -70,11 +68,10 @@
       </div>
   </div>
 </div>
-</div>
 
 <script>
   function confirmDelete(id){
-      document.getElementById("modal-btn-confirm").href="/protocolos/delete?id="+id; 
+      document.getElementById("modal-btn-confirm").href="/protocolo/delete?id="+id; 
   }
 </script>
 
